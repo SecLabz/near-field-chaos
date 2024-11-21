@@ -39,15 +39,13 @@ For TRF7970A wiring, check ```firmware/nfc/devices.h```
 
 ## Web UI
 
-Visit http://xxx in a web browser with Web Serial support (e.g., Chrome).
+Visit this [page](https://seclabz.github.io/near-field-chaos/index.html) in a web browser with Web Serial support (e.g., Chrome).
 
 Connect your Pico via USB, click "Open", select your Pico's serial port, and you're ready to go.
 
 <img width="600" alt="Web UI" src="./docs/Web UI - Screen.png">
 
 <br>
-<br>
-
 
 Open the browser console to have verbose logs.
 
@@ -81,6 +79,8 @@ The reset button cycles through three functions, indicated by LED colors:
 > **_NOTE:_** This mode is only available for the RP2040-Zero board / PN532 combination.
 
 Emulation demo
+
+https://github.com/user-attachments/assets/96c9d6df-3fb3-468c-ab25-1cb0502a20f2
 
 
 
