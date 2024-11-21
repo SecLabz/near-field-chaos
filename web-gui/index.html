@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./libs/toastify.css" />
+    <script type="application/javascript" src="./libs/modal-loading.js"></script>
+    <script type="application/javascript" src="./libs/toastify.js"></script>
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="icon" type="image/x-icon" href="./images/seclabz.png">
+</head>
+
+<body>
+    <div class="container">
+        <div id="title-div">
+            <span id="title">ST25TB</span>
+        </div>
+        <div class="buttons">
+            <button id="openclose_port" class="button">Open</button>
+            <button id="read_tag" class="button" disabled>Read</button>
+            <button id="write_tag" class="button" disabled>Write</button>
+            <button id="clear" class="button" disabled>Clear</button>
+        </div>
+        <div id="uid" class="tag-header tag">UID: XXXXXXXXXXXXXXXX</div>
+        <div id="tag-content">
+            <div class="tag-sectors tag">
+                <div>000</div>
+                <div>001</div>
+                <div>002</div>
+                <div>003</div>
+                <div>004</div>
+                <div>005</div>
+                <div>006</div>
+                <div>007</div>
+                <div>008</div>
+                <div>009</div>
+                <div>010</div>
+                <div>011</div>
+                <div>012</div>
+                <div>013</div>
+                <div>014</div>
+                <div>015</div>
+                <div>255</div>
+            </div>
+            <textarea id="dump_textarea" class="dump-textarea"></textarea>
+            <div class="tag-description tag shadow-lg">
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>count down counter 1</div>
+                <div>count down counter 2</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>lockable EEPROM</div>
+                <div>system OTP bits</div>
+            </div>
+        </div>
+
+        <div class="save-container" style="margin-top: 1rem; margin-bottom: 1rem;">
+            <label for="name" style="margin-right: 1rem;">Save to file:</label>
+            <input type="text" id="name" />
+            <button id="save_tag" class="button" disabled>Save</button>
+        </div>
+        <div class="">
+            <label for="fileInput" style="padding-right: 1rem;">Load from file:</label>
+            <input type="file" id="fileInput" />
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
