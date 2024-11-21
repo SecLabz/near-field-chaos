@@ -17,19 +17,19 @@ Using a Raspberry Pi Pico (or other RP2040 boards) paired with NFC shields (PN53
 
 ## Cheapest minimal setup
 
-<img src="./docs/RP2040-Zero PN532 - Minimal Setup.png" width="400">
+<img src="docs/RP2040-Zero PN532 - Minimal Setup.png" width="400">
 
 ## Hardware Requirements
 
-* RP2040 board (Raspberry Pi Pico, RP2040-Zero, ...)
-* NFC Shield: any PN532 with SPI or TRF7070A shield (Elechouse PN532 V3, DLP-7970ABP, ...)
+* RP2040 board (Raspberry Pi Pico, RP2040-Zero, etc...)
+* NFC Shield: any PN532 with SPI or TRF7070A shield (Elechouse PN532 V3, DLP-7970ABP, etc...)
 * ST25TB Tag
 
 ## Wiring
 
-<img src="/docs/RP2040-Zero PN532 - Wiring.jpg" width="600">
+<img src="docs/RP2040-Zero PN532 - Wiring.jpg" width="600">
 
-For TRF7970A wiring, check ```firmware/nfc/devices.h```
+For TRF7970A wiring, check [firmware/nfc/devices.h](firmware/nfc/devices.h) 
 
 ## Flashing the firmware
 
@@ -49,7 +49,7 @@ Connect your Pico via USB, click "Open", select your Pico's serial port, and you
 
 Open the browser console to have verbose logs.
 
-<img width="600" alt="Browser verbose log" src="./docs/Web UI - Logs.png">
+<img width="600" alt="Browser verbose log" src="docs/Web UI - Logs.png">
 
 ## CLI
 
@@ -61,9 +61,9 @@ Here is a browser terminal console: https://console.zacharyschneider.ca/
 screen /dev/tty.usbmodem101
 ```
 
-<img width="741" alt="CLI screenshot" src="./docs/CLI - Help.png">
+<img width="741" alt="CLI screenshot" src="docs/CLI - Help.png">
 
-<img width="356" alt="CLI Read screenshot" src="./docs/CLI - Read.png">
+<img width="356" alt="CLI Read screenshot" src="docs/CLI - Read.png">
 
 
 ## Standalone mode
@@ -90,13 +90,13 @@ https://github.com/user-attachments/assets/96c9d6df-3fb3-468c-ab25-1cb0502a20f2
 - The TRF7970A is a faster, though more expensive, NFC chip that offers quicker counter glitching.
 - The PN532 performs best when the tag is correctly positioned; the optimal sweet spot is shown in the photo below.
 
-<img width="300" alt="Sweet spot" src="./docs/PN532 - Sweet spot.png">
+<img width="300" alt="Sweet spot" src="docs/PN532 - Sweet spot.png">
 
 ## Build and deploy
 
 - Install the pico's sdk
-- Define the target device in ```CMakeLists.txt```
-- To customize the pins, modify the ```firmware/nfc/devices.h``` file accordingly.
+- Define the target device in [firmware/CMakeLists.txt](firmware/CMakeLists.txt)
+- To customize the pins, modify the [firmware/nfc/devices.h](firmware/nfc/devices.h) file accordingly.
 
 ```sh
 chmod +x ./build_deploy.sh
@@ -126,7 +126,7 @@ chmod +x ./build_deploy.sh
 
 ## License
 
-This project is licensed under the **GPL v3 License**. See the [LICENSE](./LICENSE) file for more details.
+This project is licensed under the **GPL v3 License**. See the [LICENSE](LICENSE.md) file for more details.
 
 ### Summary:
 
