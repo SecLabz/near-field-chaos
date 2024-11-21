@@ -339,17 +339,12 @@ void trf7970a_rf_enable(bool enable)
 {
     trf7970a_write(TRF7970A_CHIP_STATUS_CTRL, enable ? 0x20 : 0x00 );
     sleep_us(580); // min
-    // sleep_us(1300);
 }
 
 void trf7970a_rf_tearoff_reset()
 {
     trf7970a_rf_enable(false);
-    //sleep_us(400);
     trf7970a_rf_enable(true);
-    ///sleep_us(100);
-
-    // sleep_us(300);
 }
 
 void st25tb_deinit()

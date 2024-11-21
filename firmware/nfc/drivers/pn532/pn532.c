@@ -100,7 +100,6 @@ int pn532_rf_enable_skip_response(bool enable)
 
     pn532_spi_send_frame(abtCmd, 3);
     sleep_us(680);
-    // sleep_us(750);
 
     return 0;
 }

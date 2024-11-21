@@ -109,7 +109,6 @@ int8_t pn532_spi_read_ack()
 {
     uint8_t ack_buffer[sizeof(PN532_ACK)];
     gpio_put(pn532_cs_pin, false);
-    // sleep_ms(2);
     spi_write_blocking_lsb(spi_port, &data_read, 1);
     spi_read_blocking_lsb(spi_port, 0xFF, ack_buffer, sizeof(PN532_ACK));
     gpio_put(pn532_cs_pin, true);
@@ -128,7 +127,6 @@ void pn532_spi_send_frame(uint8_t *data, uint8_t len)
     // - Postamble (0x00)
 
     gpio_put(pn532_cs_pin, false);
-    // sleep_ms(2);
 
     // Declaring a write
     spi_write_blocking_lsb(spi_port, &data_write, 1);

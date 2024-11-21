@@ -26,7 +26,7 @@
     #define PN532_SPI_CS_PIN 11
     #define PN532_SPI_IRQ_PIN 14
 
-    #define PN532_SPI_BAUDRATE 5000000 // 6.5 Mhz (seems to be the maximum value)
+    #define PN532_SPI_BAUDRATE 5000000 // 5 Mhz (not used)
 
 #elif DEVICE == DEVICE_SHADOWTAG
 
@@ -102,7 +102,7 @@
     #define PN532_SPI_CS_PIN 14
     #define PN532_SPI_IRQ_PIN 10
 
-    #define PN532_SPI_BAUDRATE 5000000 // 6.5 Mhz (seems to be the maximum value)
+    #define PN532_SPI_BAUDRATE 5000000 // 5 Mhz (not used)
 
 #else
     #error "DEVICE must be set to either DEVICE_RP2040_ZERO_PN532, DEVICE_SHADOWTAG, DEVICE_PICOTAG, DEVICE_TRF7970_KIMONOBOARD or DEVICE_PN532_KIMONOBOARD)"
