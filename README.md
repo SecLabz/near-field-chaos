@@ -17,7 +17,7 @@ Using a Raspberry Pi Pico (or other RP2040 boards) paired with NFC shields (PN53
 
 ## Cheapest minimal setup
 
-<img src="docs/RP2040-Zero PN532 - Minimal Setup.png" width="400">
+<img src="docs/RP2040-Zero PN532 - Minimal Setup.jpg" width="400">
 
 ## Hardware Requirements
 
