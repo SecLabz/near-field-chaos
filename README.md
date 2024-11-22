@@ -85,6 +85,8 @@ https://github.com/user-attachments/assets/96c9d6df-3fb3-468c-ab25-1cb0502a20f2
 - It should work with most tags, but if for some reason it doesn’t, you can adjust a few parameters such as ```tear_off_adjustment_us``` or ```write_passes```.
 - The TRF7970A is a faster, though more expensive, NFC chip that offers quicker counter glitching.
 - The PN532 performs best when the tag is correctly positioned; the optimal sweet spot is shown in the photo below.
+- It usually takes few seconds to few minutes to increment a counter
+- 0xFFFFFFFE values are not stable due to the inner working of the tags
 
 <img width="300" alt="Sweet spot" src="docs/PN532 - Sweet spot.png">
 
