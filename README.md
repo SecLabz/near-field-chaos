@@ -43,13 +43,9 @@ Visit this [page](https://seclabz.github.io/near-field-chaos/index.html) in a we
 
 Connect your Pico via USB, click "Open", select your Pico's serial port, and you're ready to go.
 
-<img width="600" alt="Web UI" src="./docs/Web UI - Screen.png">
 
-<br>
+https://github.com/user-attachments/assets/353a3dfa-78bd-42c6-95cd-c02ece3ccb4e
 
-Open the browser console to have verbose logs.
-
-<img width="600" alt="Browser verbose log" src="docs/Web UI - Logs.png">
 
 ## CLI
 
