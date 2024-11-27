@@ -7,6 +7,8 @@
 #include "pn532.h"
 #include "pn532_spi.h"
 
+#define PN532_IC 0x32
+
 #define PN532_PREAMBLE (0x00)
 #define PN532_STARTCODE1 (0x00)
 #define PN532_STARTCODE2 (0xFF)
@@ -120,7 +122,6 @@
 int16_t pn532_sam_configuration();
 int16_t pn532_read_register(uint16_t reg, uint8_t *val);
 int16_t pn532_write_register(uint16_t reg, uint8_t val);
-bool pn532_getfirmware();
 int16_t pn532_write_register_with_mask(uint16_t reg, const uint8_t mask, const uint8_t val);
 int16_t pn532_rf_timings(uint8_t atr_res_timeout, uint8_t reply_timeout);
 int pn532_st25tb_init();

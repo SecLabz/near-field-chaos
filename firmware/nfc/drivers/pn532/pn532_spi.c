@@ -160,7 +160,7 @@ void pn532_spi_send_frame(uint8_t *data, uint8_t len)
     sum = ~sum + 1;
     spi_write_blocking_lsb(spi_port, &sum, 1);
     len = PN532_POSTAMBLE;
-    spi_write_blocking_lsb(spi_port, &total_len, 1);
+    spi_write_blocking_lsb(spi_port, &len, 1);
     gpio_put(pn532_cs_pin, true);
 }
 

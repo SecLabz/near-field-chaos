@@ -2,26 +2,6 @@
 
 uint8_t pn532_buffer[255];
 
-bool pn532_getfirmware()
-{
-    pn532_buffer[0] = PN532_COMMAND_GETFIRMWAREVERSION;
-    pn532_buffer[1] = 0x01; // Max 1 target at once
-    pn532_buffer[2] = 0x03; // Set target to 106 kbps type B (ISO/IEC14443-3B)
-    pn532_buffer[3] = 0x00; // Init data
-
-    if (pn532_spi_command(pn532_buffer, 4, pn532_buffer, sizeof(pn532_buffer), 1000) < 0)
-    {
-        return -1;
-    }
-
-    // Check for errors
-    if (pn532_buffer[0] != 0x00)
-    {
-        return -1;
-    }
-    return 0;
-}
-
 int16_t pn532_read_register(uint16_t reg, uint8_t *val)
 {
     int16_t response;

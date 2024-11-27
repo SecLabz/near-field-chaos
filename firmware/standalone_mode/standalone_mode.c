@@ -134,7 +134,12 @@ void standalone_mode_start()
 
     while (true)
     {
-        if (stdio_usb_connected())
+        if (pn532_hsu_test_communication() == 0)
+        {
+            led_green();
+            pn532_hsu_usb_bridge_start();
+        }
+        else if (stdio_usb_connected())
         {
             led_white();
             console_start();

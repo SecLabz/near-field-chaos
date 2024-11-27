@@ -22,6 +22,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     console/console.c
     led/ws2812_led.c
     nfc/drivers/trf7970a/trf7970a.c
+    nfc/drivers/pn532/pn532_hsu.c
     nfc/drivers/pn532/pn532_spi.c
     nfc/drivers/pn532/pn532.c
     nfc/nfc.c
@@ -61,6 +62,10 @@ target_link_libraries(${PROJECT_NAME}
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
+
+# Emulate a CP210x UART Bridge
+# add_compile_definitions(USBD_VID=0x067B)
+# add_compile_definitions(USBD_PID=0xAAA3)
 
 add_compile_definitions(DEVICE=DEVICE_RP2040_ZERO_PN532)
 # add_compile_definitions(DEVICE=DEVICE_SHADOWTAG)

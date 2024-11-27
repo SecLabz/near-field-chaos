@@ -5,6 +5,7 @@
 #include "../st25tb/st25tb_tag_storage.h"
 #include "../led/ws2812_led.h"
 #include "../console/console.h"
+#include "../nfc/drivers/pn532/pn532_hsu.h"
 #include "t4t_ce.h"
 
 // SRAM address to persist data between resets

@@ -90,6 +90,13 @@ https://github.com/user-attachments/assets/96c9d6df-3fb3-468c-ab25-1cb0502a20f2
 
 <img width="300" alt="Sweet spot" src="docs/PN532 - Sweet spot.png">
 
+## Bonus
+
+If you connect GPIO4 and GPIO5 to the PN532 and configure the switches for HSU mode, you can use it with libnfc, mfoc and mfcuk.
+
+<img src="docs/RP2040-Zero PN532 - HSU Wiring.jpg" width="400">
+
+
 ## Build and deploy
 
 - Install the pico's sdk
