@@ -121,8 +121,6 @@ void standalone_mode_emulator_loop()
 
 void standalone_mode_start()
 {
-    ws2812_led_init();
-
     if (*MODE < 3)
     {
         (*MODE)++;
@@ -134,12 +132,7 @@ void standalone_mode_start()
 
     while (true)
     {
-        if (pn532_hsu_test_communication() == 0)
-        {
-            led_green();
-            pn532_hsu_usb_bridge_start();
-        }
-        else if (stdio_usb_connected())
+        if (stdio_usb_connected())
         {
             led_white();
             console_start();

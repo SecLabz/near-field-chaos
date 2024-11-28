@@ -4,53 +4,51 @@ uint8_t hsu_command_num = 0;
 
 void pn532_hsu_uart_init()
 {
-    gpio_set_function(PN532_HSU_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(PN532_HSU_RX_PIN, GPIO_FUNC_UART);
+    pio_uart_init(PN532_HSU_TX_PIN, PN532_HSU_RX_PIN, PN532_HSU_BAUD_RATE);
+}
 
-    uart_init(PN532_HSU_UART, PN532_HSU_BAUD_RATE);
-    uart_set_hw_flow(PN532_HSU_UART, false, false);
-    uart_set_format(PN532_HSU_UART, PN532_HSU_DATA_BITS,
-                    PN532_HSU_STOP_BITS,
-                    PN532_HSU_PARITY);
+void pn532_hsu_uart_deinit()
+{
+    pio_uart_deinit();
 }
 
 void pn532_hsu_wakeup()
 {
-    uart_putc(PN532_HSU_UART, 0x55);
-    uart_putc(PN532_HSU_UART, 0x55);
-    uart_putc(PN532_HSU_UART, 0);
-    uart_putc(PN532_HSU_UART, 0);
-    uart_putc(PN532_HSU_UART, 0);
+    pio_uart_putc(0x55);
+    pio_uart_putc(0x55);
+    pio_uart_putc(0);
+    pio_uart_putc(0);
+    pio_uart_putc(0);
 
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0x00);
-    uart_putc(PN532_HSU_UART, 0xFF);
-    uart_putc(PN532_HSU_UART, 0x05);
-    uart_putc(PN532_HSU_UART, 0xFB);
-    uart_putc(PN532_HSU_UART, 0xD4);
-    uart_putc(PN532_HSU_UART, 0x14);
-    uart_putc(PN532_HSU_UART, 0x01);
-    uart_putc(PN532_HSU_UART, 0x14);
-    uart_putc(PN532_HSU_UART, 0x01);
-    uart_putc(PN532_HSU_UART, 0x02);
-    uart_putc(PN532_HSU_UART, 0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0x00);
+    pio_uart_putc(0xFF);
+    pio_uart_putc(0x05);
+    pio_uart_putc(0xFB);
+    pio_uart_putc(0xD4);
+    pio_uart_putc(0x14);
+    pio_uart_putc(0x01);
+    pio_uart_putc(0x14);
+    pio_uart_putc(0x01);
+    pio_uart_putc(0x02);
+    pio_uart_putc(0x00);
 
     sleep_ms(3);
 
     // clear serial buffer
-    while (uart_is_readable(PN532_HSU_UART))
+    while (pio_uart_is_readable())
     {
-        uart_getc(PN532_HSU_UART);
+        pio_uart_getc();
     }
 
     sleep_ms(3);
@@ -68,9 +66,9 @@ int8_t pn532_hsu_receive(uint8_t *buf, int len, uint16_t timeout)
         start_millis = to_ms_since_boot(get_absolute_time());
         do
         {
-            if (uart_is_readable(PN532_HSU_UART))
+            if (pio_uart_is_readable())
             {
-                ret = uart_getc(PN532_HSU_UART);
+                ret = pio_uart_getc();
                 if (ret >= 0)
                 {
                     break;
@@ -116,36 +114,36 @@ int8_t pn532_hsu_read_ack()
 int8_t pn532_hsu_send_command(const uint8_t *data, uint8_t len)
 {
     // clear serial buffer
-    while (uart_is_readable(PN532_HSU_UART))
+    while (pio_uart_is_readable())
     {
-        uart_getc(PN532_HSU_UART);
+        pio_uart_getc();
     }
 
     hsu_command_num = data[0];
 
-    uart_putc(PN532_HSU_UART, PN532_PREAMBLE);
-    uart_putc(PN532_HSU_UART, PN532_STARTCODE1);
-    uart_putc(PN532_HSU_UART, PN532_STARTCODE2);
+    pio_uart_putc(PN532_PREAMBLE);
+    pio_uart_putc(PN532_STARTCODE1);
+    pio_uart_putc(PN532_STARTCODE2);
 
     // length of data field: TFI + DATA
     uint8_t length = len + 1;
-    uart_putc(PN532_HSU_UART, length);
+    pio_uart_putc(length);
 
     // checksum of length
-    uart_putc(PN532_HSU_UART, ~length + 1);
+    pio_uart_putc(~length + 1);
 
-    uart_putc(PN532_HSU_UART, PN532_HOSTTOPN532);
+    pio_uart_putc(PN532_HOSTTOPN532);
     uint8_t sum = PN532_HOSTTOPN532;
 
     for (uint8_t i = 0; i < len; i++)
     {
         sum += data[i];
-        uart_putc(PN532_HSU_UART, data[i]);
+        pio_uart_putc(data[i]);
     }
 
     uint8_t checksum = ~sum + 1;
-    uart_putc(PN532_HSU_UART, checksum);
-    uart_putc(PN532_HSU_UART, PN532_POSTAMBLE);
+    pio_uart_putc(checksum);
+    pio_uart_putc(PN532_POSTAMBLE);
 
     return pn532_hsu_read_ack();
 }
@@ -250,9 +248,11 @@ int8_t pn532_hsu_test_communication()
 
     if (pn532_hsu_get_firmware(&ic) != 0 || ic != PN532_IC)
     {
+        pn532_hsu_uart_deinit();
         return -1;
     }
 
+    pn532_hsu_uart_deinit();
     return 0;
 }
 
@@ -303,12 +303,12 @@ void usb_write_bytes()
 
 void uart_read_bytes()
 {
-    if (uart_is_readable(PN532_HSU_UART))
+    if (pio_uart_is_readable())
     {
-        while (uart_is_readable(PN532_HSU_UART) &&
+        while (pio_uart_is_readable() &&
                uart_position < PN532_HSU_BUFFER_SIZE)
         {
-            uart_buffer[uart_position] = uart_getc(PN532_HSU_UART);
+            uart_buffer[uart_position] = pio_uart_getc();
             uart_position++;
         }
     }
@@ -318,7 +318,7 @@ void uart_write_bytes()
 {
     if (usb_position)
     {
-        uart_write_blocking(PN532_HSU_UART, usb_buffer, usb_position);
+        pio_uart_uart_write_blocking(usb_buffer, usb_position);
         usb_position = 0;
     }
 }

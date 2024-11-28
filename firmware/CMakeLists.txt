@@ -35,6 +35,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     st25tb/st25tb_tear_off.c
     standalone_mode/standalone_mode.c
     standalone_mode/t4t_ce.c
+    uart/pio_uart.c
     utils/utils.c
     utils/task.c
     main.c
@@ -42,6 +43,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 # Generate pio headers
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/spi/spi.pio)
+pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/uart/uart_rx.pio)
+pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/uart/uart_tx.pio)
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/led/ws2812.pio)
 
 # Create map/bin/hex/uf2 files

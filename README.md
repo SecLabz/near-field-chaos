@@ -92,10 +92,7 @@ https://github.com/user-attachments/assets/96c9d6df-3fb3-468c-ab25-1cb0502a20f2
 
 ## Bonus
 
-If you connect GPIO4 and GPIO5 to the PN532 and configure the switches for HSU mode, you can use it with libnfc, mfoc and mfcuk.
-
-<img src="docs/RP2040-Zero PN532 - HSU Wiring.jpg" width="400">
-
+If you configure the switches for HSU mode, you can use your PN532 with libnfc, mfoc and mfcuk.
 
 ## Build and deploy
 

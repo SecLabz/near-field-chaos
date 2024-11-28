@@ -5,6 +5,7 @@
 #include <tusb.h>
 #include "pico/stdlib.h"
 #include "pn532.h"
+#include "../../../uart/pio_uart.h"
 
 #define PN532_HSU_BUFFER_SIZE 64
 
@@ -13,10 +14,11 @@
 #define PN532_HSU_DATA_BITS 8
 #define PN532_HSU_STOP_BITS 1
 #define PN532_HSU_PARITY UART_PARITY_NONE
-#define PN532_HSU_TX_PIN 4
-#define PN532_HSU_RX_PIN 5
+#define PN532_HSU_TX_PIN 11
+#define PN532_HSU_RX_PIN 10
 
 void pn532_hsu_uart_init();
+void pn532_hsu_uart_deinit();
 void pn532_hsu_wakeup();
 int8_t pn532_hsu_receive(uint8_t *buf, int len, uint16_t timeout);
 int8_t pn532_hsu_read_ack();
