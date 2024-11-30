@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <errno.h>
 
-uint8_t str_to_uint32(const char *str, uint32_t *out, const bool hex)
+int8_t str_to_uint32(const char *str, uint32_t *out, const bool hex)
 {
     char *endptr;
     uint32_t value;
@@ -20,7 +20,7 @@ uint8_t str_to_uint32(const char *str, uint32_t *out, const bool hex)
 }
 
 
-uint8_t any_str_to_uint32(const char *str, uint32_t *out)
+int8_t any_str_to_uint32(const char *str, uint32_t *out)
 {
     char *endptr;
     uint8_t value;

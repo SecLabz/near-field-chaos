@@ -131,9 +131,9 @@ void trf7970a_write(const uint8_t reg,
     SPI_CS_UNSELECT(cs_pin);
 }
 
-uint8_t trf7970a_raw_read(const uint8_t reg)
+int8_t trf7970a_raw_read(const uint8_t reg)
 {
-    uint8_t result;
+    int8_t result;
 
     uint8_t address = TRF7970A_CMD_MASK(reg) | TRF7970A_REG_READ;
     spi_write_blocking(spi, &address, 1);
@@ -152,9 +152,9 @@ void trf7970a_raw_read_cont(const uint8_t reg,
     spi_read_blocking(spi, 0, buffer, length);
 }
 
-uint8_t trf7970a_read(const uint8_t reg)
+int8_t trf7970a_read(const uint8_t reg)
 {
-    uint8_t result;
+    int8_t result;
 
     uint8_t address = TRF7970A_CMD_MASK(reg) | TRF7970A_REG_READ;
 

@@ -24,10 +24,10 @@
 
 #define ST25TB_ADDRESS_OTP 0xFF
 
-uint8_t st25tb_cmd_initiate(uint8_t *chip_id);
-uint8_t st25tb_cmd_select(const uint8_t chip_id);
-uint8_t st25tb_cmd_reset_to_inventory();
-uint8_t st25tb_cmd_write_block(const uint8_t address, const uint32_t block, uint8_t timeout_ms);
-uint8_t st25tb_cmd_get_uid(uint64_t *uid);
-uint8_t st25tb_cmd_read_block(uint8_t address, uint32_t *block);
-uint8_t st25tb_cmd_write_block_(const uint8_t address, const uint32_t block);
+int8_t st25tb_cmd_initiate(uint8_t *chip_id);
+int8_t st25tb_cmd_select(const uint8_t chip_id);
+int8_t st25tb_cmd_reset_to_inventory();
+int8_t st25tb_cmd_write_block(const uint8_t address, const uint32_t block, uint8_t timeout_ms);
+int8_t st25tb_cmd_get_uid(uint64_t *uid);
+int8_t st25tb_cmd_read_block(uint8_t address, uint32_t *block);
+int8_t st25tb_cmd_write_block_(const uint8_t address, const uint32_t block);

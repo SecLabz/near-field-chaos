@@ -119,7 +119,7 @@ void trf7970a_raw_write(const uint8_t reg,
 void trf7970a_write(const uint8_t reg,
                     const uint8_t value);
 
-uint8_t trf7970a_read(const uint8_t reg);
+int8_t trf7970a_read(const uint8_t reg);
 
 void trf7970a_read_cont(const uint8_t reg,
                         uint8_t *buffer,

@@ -56,9 +56,10 @@ void st25tb_tag_print_raw(const struct st25tb_tag *tag)
     printf("%" PRIX64 "", tag->uid);
 }
 
-uint8_t st25tb_tag_read(struct st25tb_tag *tag)
+int8_t st25tb_tag_read(struct st25tb_tag *tag)
 {
-    uint8_t result, i, chip_id;
+    int8_t result;
+    uint8_t i, chip_id;
 
     if (st25tb_cmd_initiate(&chip_id) != 0)
     {
@@ -96,9 +97,10 @@ uint8_t st25tb_tag_read(struct st25tb_tag *tag)
     return 0;
 }
 
-uint8_t st25tb_tag_write_block(const uint8_t address, const uint32_t block, bool check)
+int8_t st25tb_tag_write_block(const uint8_t address, const uint32_t block, bool check)
 {
-    uint8_t result, chip_id;
+    int8_t result;
+    uint8_t chip_id;
     uint32_t read_block;
 
     result = st25tb_cmd_initiate(&chip_id);
@@ -140,9 +142,10 @@ uint8_t st25tb_tag_write_block(const uint8_t address, const uint32_t block, bool
     return 0;
 }
 
-uint8_t st25tb_tag_write(struct st25tb_tag *tag)
+int8_t st25tb_tag_write(struct st25tb_tag *tag)
 {
-    uint8_t result, chip_id, i;
+    int8_t result;
+    uint8_t chip_id, i;
 
     nfc_st25tb_init();
 

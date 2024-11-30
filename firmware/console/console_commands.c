@@ -50,7 +50,7 @@ void console_print_help(const int argc, char *argv[])
 
 void console_read_tag(const int argc, char *argv[])
 {
-    uint8_t result;
+    int8_t result;
     struct st25tb_tag tag;
 
     if (nfc_st25tb_init() != 0)
@@ -70,7 +70,7 @@ void console_read_tag(const int argc, char *argv[])
 
 void console_read_tag_raw(const int argc, char *argv[])
 {
-    uint8_t result;
+    int8_t result;
     struct st25tb_tag tag;
 
     if (nfc_st25tb_init() != 0)
@@ -124,7 +124,7 @@ int8_t tearoff(const int8_t block_address, uint32_t target_value, uint32_t tear_
 
 void console_write_tag_block(const int argc, char *argv[])
 {
-    uint8_t result;
+    int8_t result;
     uint32_t address, value;
 
     if (argc != 3)
@@ -165,7 +165,7 @@ void console_write_tag_block(const int argc, char *argv[])
 
 void console_write_tag_raw(const int argc, char *argv[])
 {
-    uint8_t result;
+    int8_t result;
     uint32_t address, value;
 
     if (argc != 2)
@@ -223,7 +223,7 @@ void console_write_tag_raw(const int argc, char *argv[])
 
 void console_tear_off(const int argc, char *argv[])
 {
-    uint8_t result;
+    int8_t result;
     uint32_t address;
     uint32_t value;
     uint32_t tear_off_adjustment_us = 0;
@@ -318,9 +318,9 @@ void console_print_saved_tags(const int argc, char *argv[])
     st25tb_tag_storage_print_tags();
 }
 
-uint8_t console_load_tag_from_index(const int argc, char *argv[], struct st25tb_tag *tag)
+int8_t console_load_tag_from_index(const int argc, char *argv[], struct st25tb_tag *tag)
 {
-    uint8_t result;
+    int8_t result;
     uint32_t index;
 
     if (argc != 2)
@@ -348,7 +348,7 @@ uint8_t console_load_tag_from_index(const int argc, char *argv[], struct st25tb_
 
 void console_do_print_saved_tag(const int argc, char *argv[], bool raw)
 {
-    uint8_t result;
+    int8_t result;
     struct st25tb_tag tag;
 
     result = console_load_tag_from_index(argc, argv, &tag);

@@ -1,7 +1,7 @@
 #include "st25tb_common.h"
 
 
-uint8_t st25tb_tag_parse_from_string(const char *str, struct st25tb_tag *tag)
+int8_t st25tb_tag_parse_from_string(const char *str, struct st25tb_tag *tag)
 {
     int8_t result, i;
     // 152 is the number of single char in a tag

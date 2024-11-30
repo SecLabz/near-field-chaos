@@ -259,7 +259,7 @@ void t4t_ce_state_machine(uint8_t *rx_buffer, uint8_t *rx_length, uint8_t *tx_bu
             }
             write_tag_str[j] = '\0';
 
-            uint8_t result = st25tb_tag_parse_from_string(write_tag_str, &tag);
+            int8_t result = st25tb_tag_parse_from_string(write_tag_str, &tag);
             if (result != 0)
             {
                 error = true;
@@ -298,7 +298,7 @@ void t4t_ce_state_machine(uint8_t *rx_buffer, uint8_t *rx_length, uint8_t *tx_bu
     }
 }
 
-uint8_t t4t_ce_set_tag(struct st25tb_tag *t)
+int8_t t4t_ce_set_tag(struct st25tb_tag *t)
 {
     void *result;
     result = memcpy(&tag, t, sizeof(struct st25tb_tag));
@@ -309,7 +309,7 @@ uint8_t t4t_ce_set_tag(struct st25tb_tag *t)
     return 0;
 }
 
-uint8_t t4t_ce_get_tag(struct st25tb_tag *t)
+int8_t t4t_ce_get_tag(struct st25tb_tag *t)
 {
     void *result;
     result = memcpy(t, &tag, sizeof(struct st25tb_tag));

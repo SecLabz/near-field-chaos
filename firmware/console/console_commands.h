@@ -23,7 +23,7 @@ void console_write_tag_raw(const int argc, char *argv[]);
 void console_write_tag_block(const int argc, char *argv[]);
 void console_tear_off(const int argc, char *argv[]);
 void console_print_saved_tags(const int argc, char *argv[]);
-uint8_t console_load_tag_from_index(const int argc, char *argv[], struct st25tb_tag *tag);
+int8_t console_load_tag_from_index(const int argc, char *argv[], struct st25tb_tag *tag);
 void console_do_print_saved_tag(const int argc, char *argv[], bool raw);
 void console_print_saved_tag(const int argc, char *argv[]);
 int8_t tearoff(const int8_t block_address, uint32_t target_value, uint32_t tear_off_adjustment_us);

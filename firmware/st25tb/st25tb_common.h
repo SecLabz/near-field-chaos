@@ -13,4 +13,4 @@ struct st25tb_tag
     uint64_t uid;
 };
 
-uint8_t st25tb_tag_parse_from_string(const char *str, struct st25tb_tag *tag);
+int8_t st25tb_tag_parse_from_string(const char *str, struct st25tb_tag *tag);

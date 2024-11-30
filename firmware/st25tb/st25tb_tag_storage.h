@@ -25,9 +25,9 @@
 #define TAG_STORAGE_ADDRESS FLASH_STORAGE_ADDRESS + 4
 
 void st25tb_tag_storage_init(bool force);
-uint8_t st25tb_tag_storage_save(const struct st25tb_tag *tag);
+int8_t st25tb_tag_storage_save(const struct st25tb_tag *tag);
 bool st25tb_tag_storage_exists(const uint64_t uid);
-uint8_t st25tb_tag_storage_load(const uint64_t uid, struct st25tb_tag *tag);
-uint8_t st25tb_tag_storage_load_by_index(const uint8_t index, struct st25tb_tag *tag);
+int8_t st25tb_tag_storage_load(const uint64_t uid, struct st25tb_tag *tag);
+int8_t st25tb_tag_storage_load_by_index(const uint8_t index, struct st25tb_tag *tag);
 void st25tb_tag_storage_print_tags();
-uint8_t st25tb_tag_storage_delete(const uint8_t index);
+int8_t st25tb_tag_storage_delete(const uint8_t index);

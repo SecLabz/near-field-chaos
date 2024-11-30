@@ -54,7 +54,7 @@ void st25tb_tag_storage_print_tags()
     }
 }
 
-uint8_t st25tb_tag_storage_save(const struct st25tb_tag *tag)
+int8_t st25tb_tag_storage_save(const struct st25tb_tag *tag)
 {
     uint32_t ints, count;
     bool found = false;
@@ -109,7 +109,7 @@ uint8_t st25tb_tag_storage_save(const struct st25tb_tag *tag)
     return 0;
 }
 
-uint8_t st25tb_tag_storage_load_by_index(const uint8_t index, struct st25tb_tag *tag)
+int8_t st25tb_tag_storage_load_by_index(const uint8_t index, struct st25tb_tag *tag)
 {
     uint8_t count = 0;
     struct st25tb_tag *stored_tag = (struct st25tb_tag *)(FLASH_STORAGE_ADDRESS + 4);
@@ -126,7 +126,7 @@ uint8_t st25tb_tag_storage_load_by_index(const uint8_t index, struct st25tb_tag 
     return -1;
 }
 
-uint8_t st25tb_tag_storage_delete(const uint8_t index)
+int8_t st25tb_tag_storage_delete(const uint8_t index)
 {
     uint32_t ints, count;
     bool found = false;
@@ -201,7 +201,7 @@ bool st25tb_tag_storage_exists(const uint64_t uid)
     return false;
 }
 
-uint8_t st25tb_tag_storage_load(const uint64_t uid, struct st25tb_tag *tag)
+int8_t st25tb_tag_storage_load(const uint64_t uid, struct st25tb_tag *tag)
 {
     struct st25tb_tag *stored_tag = (struct st25tb_tag *)(FLASH_STORAGE_ADDRESS + 4);
     while (stored_tag->uid != 0xFFFFFFFFFFFFFFFF)
