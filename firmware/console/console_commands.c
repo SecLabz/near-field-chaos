@@ -256,7 +256,7 @@ void console_tear_off(const int argc, char *argv[])
         return;
     }
 
-    if (argc == 4)
+    if (argc >= 4)
     {
         result = any_str_to_uint32(argv[3], &tear_off_adjustment_us);
         if (result != 0)
