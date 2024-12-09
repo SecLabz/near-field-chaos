@@ -4,6 +4,9 @@
 #if DEVICE == DEVICE_RP2040_ZERO_PN532
 #include "standalone_mode/standalone_mode.h"
 #endif
+#if CHIP == CHIP_PN532
+#include "nfc/drivers/pn532/pn532_hsu.h"
+#endif
 
 int main()
 {
