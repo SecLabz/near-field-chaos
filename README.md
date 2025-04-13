@@ -122,7 +122,7 @@ chmod +x ./build_deploy.sh
 ## Hall of fame
 
 - **C. Herrmann and P. Teuwen**: For opening Pandora's box.
-- **G. Nahuel and Ukmar, F. Gabriel**: The first to use the PN532 for tear-off purposes.
+- **N. Grisolía, F. Ukmar**: The first to use the PN532 for tear-off purposes.
 - **R. Delion, P. Granier and J.J. Marty**: Pioneers in enabling tear-off on ST25TB tags.
 - **Benjamin Delpy**: Special thanks to him for our discussions, which were invaluable in helping me with this project.
 
